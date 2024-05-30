@@ -14,8 +14,9 @@ pnpm i -D sveltekit-redirections
 
 Add to `src/hooks.server.js`:
 
-```
+```javascript
 import { redirections } from 'sveltekit-redirections'
+import { sequence } from '@sveltejs/kit/hooks'
 
 export const handle = sequence([
   redirections({
