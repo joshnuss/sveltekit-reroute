@@ -7,25 +7,20 @@ describe('redirections', () => {
     '/discord': 'https://discord.gg/1234'
   })
 
-  test('when path matches rule, it redirects', () => {
+  test('when path matches rule, it redirects', async () => {
     const event = { url: new URL('https://localhost:5173/discord') }
 
-    try {
-      handler({ event, resolve })
-    } catch (redirect) {
-      expect(redirect.status).toBe(303)
-      expect(redirect.location).toBe('https://discord.gg/1234')
-      expect(resolve).not.toHaveBeenCalled()
-      return
-    }
+    const redirect = await handler({ event, resolve })
 
-    throw Error('did not redirect')
+    expect(redirect.status).toBe(303)
+    expect(redirect.headers.get('location')).toBe('https://discord.gg/1234')
+    expect(resolve).not.toHaveBeenCalled()
   })
 
-  test("when path doesn't match rule, it doesn't redirect", () => {
+  test("when path doesn't match rule, it doesn't redirect", async () => {
     const event = { url: new URL('https://localhost:5173/contact') }
 
-    handler({ event, resolve })
+    await handler({ event, resolve })
 
     expect(resolve).toHaveBeenCalledWith(event)
   })
