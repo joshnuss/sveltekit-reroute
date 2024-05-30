@@ -2,7 +2,7 @@
 
 A SvelteKit handler for redirection rules.
 
-This is useful for URL shortening, correcting commonly misspelled words, or for deprecating URLs.
+This is useful for URL shortening, correcting misspelled words, or for deprecating URLs.
 
 ## Usage
 
