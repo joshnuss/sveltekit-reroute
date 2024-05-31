@@ -31,3 +31,7 @@ export const handle = sequence([
 ## Similar Packages
 
 - [sveltekit-hook-redirect](https://github.com/svackages/sveltekit-hook-redirect) by [@dreitzner](https://github.com/dreitzner)
+
+## License
+
+MIT
