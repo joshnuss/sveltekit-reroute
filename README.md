@@ -1,4 +1,4 @@
-# sveltekit-redirections
+# sveltekit-reroute
 
 A SvelteKit handler for redirection rules.
 
@@ -9,17 +9,17 @@ This is useful for URL shortening, correcting misspelled words, or for deprecati
 Install package:
 
 ```
-pnpm i -D sveltekit-redirections
+pnpm i -D sveltekit-reroute
 ```
 
 Add to `src/hooks.server.js`:
 
 ```javascript
-import { redirections } from 'sveltekit-redirections'
+import { reroute } from 'sveltekit-reroute'
 import { sequence } from '@sveltejs/kit/hooks'
 
 export const handle = sequence([
-  redirections({
+  reroute({
     '/github': 'https://github.com/joshnuss',
     '/documentation': '/docs'
   }),

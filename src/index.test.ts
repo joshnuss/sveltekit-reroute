@@ -1,9 +1,9 @@
 import { describe, test, expect, vi } from 'vitest'
-import { redirections } from './lib'
+import { reroute } from './lib'
 
-describe('redirections', () => {
+describe('reroute', () => {
   const resolve = vi.fn()
-  const handler = redirections({
+  const handler = reroute({
     '/discord': 'https://discord.gg/1234'
   })
 
